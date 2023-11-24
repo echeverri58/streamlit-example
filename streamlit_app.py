@@ -1,21 +1,17 @@
-pip install folium
-
 import streamlit as st
 import pandas as pd
 import numpy as np
+
+# Instalar los paquetes requeridos
+st.write("Instalando dependencias...")
+st.run("pip install folium")
+
+# Importar el módulo recién instalado
 import folium
 from streamlit_folium import folium_static
 
-# Generar datos aleatorios para las dos columnas
-data_columna1 = pd.DataFrame({
-    'Categoría': ['A', 'B', 'C', 'D'],
-    'Valor': np.random.randint(1, 10, size=4)
-})
-
-data_columna2 = pd.DataFrame({
-    'Categoría': ['E', 'F', 'G', 'H'],
-    'Valor': np.random.randint(1, 10, size=4)
-})
+# El resto de tu código permanece sin cambios
+# ...
 
 # Crear el mapa de Medellín
 medellin_map = folium.Map(location=[6.2442, -75.5812], zoom_start=12)
@@ -37,4 +33,5 @@ col2.bar_chart(data_columna2.set_index('Categoría'))
 # Mostrar el mapa debajo de las columnas
 st.markdown("### Mapa de Medellín con Puntos Aleatorios")
 folium_static(medellin_map)
+
 
